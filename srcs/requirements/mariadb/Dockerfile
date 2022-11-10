@@ -2,3 +2,4 @@ FROM alpine:latest
 
 RUN apk upgrade
 RUN apk add mariadb
+CMD mariadb db

@@ -1,9 +1,10 @@
 
 NAME = stack
 
-SRC = srcs/docker-compose.yml
+SRCS = srcs/docker-compose.yml
 
 $(NAME): all
 
 all:
+	cd srcs
 	docker compose up
