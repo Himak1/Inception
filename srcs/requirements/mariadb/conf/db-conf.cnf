@@ -1,0 +1,10 @@
+[client]
+port=3306
+socket=/var/lib/mysql/mysql.sock
+
+[mysqld]
+port=3306
+socket=/var/lib/mysql/mysql.sock
+key_buffer_size=16M
+max_allowed_packet=8M
+bind-address = 127.0.0.1

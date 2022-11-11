@@ -6,5 +6,4 @@ SRCS = srcs/docker-compose.yml
 $(NAME): all
 
 all:
-	cd srcs
-	docker compose up
+	cd srcs ; docker compose up
