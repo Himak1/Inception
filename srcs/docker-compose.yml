@@ -6,3 +6,5 @@ services:
     volumes:
       - ./requirements/mariadb/conf:/db-data
     restart: on-failure
+  nginx:
+    build: ./requirements/nginx
