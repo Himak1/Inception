@@ -8,3 +8,4 @@ services:
     restart: on-failure
   nginx:
     build: ./requirements/nginx
+    
