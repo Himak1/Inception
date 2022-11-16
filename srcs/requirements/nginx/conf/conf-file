@@ -1,0 +1,22 @@
+user nobody; # a directive in the 'main' context
+
+events {
+    # configuration of connection processing
+}
+
+http {
+    # Configuration specific to HTTP and affecting all virtual servers  
+
+    server {
+        listen 8080;
+        root /conf-dir;
+
+        location / {
+        }
+        # location / {
+        #     proxy_pass http://localhost:443;
+        # }
+        # location /
+        # root /conf-dir;
+    } 
+}
