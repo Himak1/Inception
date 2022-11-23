@@ -1,16 +1,19 @@
 version:	"3.8"
 
 services:
-  # mariadb:
-  #   build: ./requirements/mariadb
-  #   volumes:
-  #     - ./requirements/mariadb/conf:/db-data
-  #   restart: on-failure
-  nginx:
-    build: ./requirements/nginx
-    restart: on-failure
-    ports:
-      - "443"
+  mariadb:
+    build: "./requirements/mariadb"
     volumes:
-      - ./requirements/nginx/conf:/conf-dir
-    
+      - "./requirements/mariadb/conf:/dbdata"
+    restart: "no"
+  nginx:
+    build: "./requirements/nginx"
+    restart: "no"
+    ports:
+      - "8081:80"
+    volumes:
+      - "./requirements/nginx/conf:/conf"
+  # wordpress:
+  #   build: "./requirements/wordpress"
+  #   restart: "no"
+
