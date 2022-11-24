@@ -1,4 +1,4 @@
-FROM alpine:3
+FROM alpine:3.16
 
 RUN apk upgrade
 RUN apk add mariadb

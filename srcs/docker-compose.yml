@@ -13,7 +13,9 @@ services:
       - "8081:80"
     volumes:
       - "./requirements/nginx/conf:/conf"
-  # wordpress:
-  #   build: "./requirements/wordpress"
-  #   restart: "no"
+  wordpress:
+    depends_on:
+      - "mariadb"
+    build: "./requirements/wordpress"
+    restart: "no"
 
