@@ -12,6 +12,7 @@ RUN apk upgrade ; \
         libzip \
         # PHP8 and extensions
         php8 \
+        php8-fpm \
         php8-curl \
         php8-dom \
         php8-exif \
@@ -28,3 +29,4 @@ RUN apk upgrade ; \
         wget https://wordpress.org/wordpress-6.0.3.tar.gz ; \
         tar -xzvf wordpress-6.0.3.tar.gz ; \
         rm wordpress-6.0.3.tar.gz
+CMD php-fpm8 -F -R
