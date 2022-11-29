@@ -6,16 +6,23 @@ services:
     volumes:
       - "./requirements/mariadb/conf:/dbdata"
     restart: "no"
+    ports:
+      - "3306"
   nginx:
     build: "./requirements/nginx"
     restart: "no"
     ports:
-      - "8081:80"
+      - "443"
     volumes:
-      - "./requirements/nginx/conf:/conf"
+      - wp:/conf
   wordpress:
     depends_on:
       - "mariadb"
     build: "./requirements/wordpress"
     restart: "no"
-
+    ports:
+      - "9000"
+    volumes:
+      wp:/files
+volumes:
+  wp:
