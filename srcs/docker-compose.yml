@@ -4,7 +4,7 @@ services:
   mariadb:
     build: ./requirements/mariadb
     volumes:
-      - ./requirements/mariadb/conf:/dbdata
+      - database:/dbdata
     restart: "no"
     ports:
       - "3306"
@@ -14,7 +14,7 @@ services:
     ports:
       - "443"
     volumes:
-      - wp:/conf
+      - wordpress_web:/conf
   wordpress:
     depends_on:
       - mariadb
@@ -23,7 +23,7 @@ services:
     ports:
       - "9000"
     volumes:
-      - wp:/files
+      - wordpress_web:/files
 volumes:
   wordpress_web:
     driver: local
