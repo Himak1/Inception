@@ -2,14 +2,14 @@ version:	"3.8"
 
 services:
   mariadb:
-    build: "./requirements/mariadb"
+    build: ./requirements/mariadb
     volumes:
-      - "./requirements/mariadb/conf:/dbdata"
+      - ./requirements/mariadb/conf:/dbdata
     restart: "no"
     ports:
       - "3306"
   nginx:
-    build: "./requirements/nginx"
+    build: ./requirements/nginx
     restart: "no"
     ports:
       - "443"
@@ -17,12 +17,22 @@ services:
       - wp:/conf
   wordpress:
     depends_on:
-      - "mariadb"
-    build: "./requirements/wordpress"
+      - mariadb
+    build: ./requirements/wordpress
     restart: "no"
     ports:
       - "9000"
     volumes:
-      wp:/files
+      - wp:/files
 volumes:
-  wp:
+  wordpress_web:
+    driver: local
+    driver_opts:
+      device: /home/jhille/data/wordpress
+      o: bind
+  database:
+    driver: local
+    driver_opts:
+      device: /home/jhille/data/database
+      o: bind
+
