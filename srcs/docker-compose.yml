@@ -14,7 +14,7 @@ services:
     ports:
       - "443"
     volumes:
-      - wordpress_web:/conf
+      - wordpress_web:/webfiles
   wordpress:
     depends_on:
       - mariadb
@@ -28,11 +28,14 @@ volumes:
   wordpress_web:
     driver: local
     driver_opts:
-      device: /home/jhille/data/wordpress
+      type: nfs
+      #device: /home/jhille/data/wordpress
+      device: /Users/jhille/projects/inception/wordpress_web
       o: bind
   database:
     driver: local
     driver_opts:
-      device: /home/jhille/data/database
+      type: nfs
+      #device: /home/jhille/data/database
+      device: /Users/jhille/projects/inception/database
       o: bind
-
