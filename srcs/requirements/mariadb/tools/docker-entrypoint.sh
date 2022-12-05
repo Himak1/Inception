@@ -1,5 +1,7 @@
 #!/bin/ash
 openrc
 touch /run/openrc/softlevel
-mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-service mariadb start
+openrc
+mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+rc-service mariadb start
+mariadb < set-users.sql

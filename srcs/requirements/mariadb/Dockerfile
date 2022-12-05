@@ -7,6 +7,6 @@ RUN rm -rf /var/lib/mysql ; \
     chmod 777 /var/run/mysqld ; \
     mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 COPY tools/docker-entrypoint.sh /usr/local/bin/
+COPY tools/set-users.sql /
 RUN docker-entrypoint.sh
-# ENTRYPOINT ["docker-entrypoint.sh"]
-# CMD mariadbd --user=mysql
+CMD mariadbd --user=mysql
