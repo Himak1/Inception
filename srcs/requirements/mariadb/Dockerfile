@@ -9,4 +9,4 @@ RUN rm -rf /var/lib/mysql ; \
 COPY tools/docker-entrypoint.sh /usr/local/bin/
 COPY tools/set-users.sql /
 RUN docker-entrypoint.sh
-CMD mariadbd --user=mysql
+CMD cat set-users.sql ; mariadbd --user=mysql

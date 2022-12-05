@@ -11,10 +11,9 @@ else
 endif
 
 $(NAME): all
-	cd srcs ; $(DK_CMP) up --detach
 
 all:
-	cd srcs ; $(DK_CMP) build
+	cd srcs ; $(DK_CMP) up 
 
 clean:
 	cd srcs ; $(DK_CMP) stop
