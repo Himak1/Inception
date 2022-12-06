@@ -6,8 +6,6 @@ services:
     volumes:
       - database:/dbdata
     restart: "no"
-    ports:
-      - "3306"
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_USER=${MYSQL_USER}
@@ -24,22 +22,20 @@ services:
       - mariadb
     build: ./requirements/wordpress
     restart: "no"
-    ports:
-      - "9000"
     volumes:
       - wordpress_web:/files
 volumes:
   wordpress_web:
     driver: local
     driver_opts:
-      type: nfs
+      o: bind
+      type: none
       #device: /home/jhille/data/wordpress
       device: /Users/jhille/projects/inception/wordpress_web
-      o: bind
   database:
     driver: local
     driver_opts:
-      type: nfs
+      o: bind
+      type: none
       #device: /home/jhille/data/database
       device: /Users/jhille/projects/inception/database
-      o: bind

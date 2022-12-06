@@ -19,6 +19,9 @@ clean:
 	cd srcs ; $(DK_CMP) stop
 
 fclean: clean
-	cd srcs ; $(DK_CMP) rm
+	cd srcs ; \
+	$(DK_CMP) rm ; \
+	docker image rm srcs_mariadb srcs_wordpress srcs_nginx ; \
+	docker volume rm srcs_database srcs_wordpress_web
 
 re: fclean all
