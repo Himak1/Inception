@@ -38,4 +38,4 @@ volumes:
       o: bind
       type: none
       #device: /home/jhille/data/database
-      device: /Users/jhille/projects/inception/database
+      device: /Users/jhille/projects/inception/inception-42/data
