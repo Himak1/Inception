@@ -13,7 +13,7 @@ endif
 $(NAME): all
 
 all:
-	cd srcs ; $(DK_CMP) up --build
+	cd srcs ; $(DK_CMP) up --build -d
 
 clean:
 	cd srcs ; $(DK_CMP) stop
@@ -21,7 +21,7 @@ clean:
 fclean: clean
 	cd srcs ; \
 	$(DK_CMP) rm -f ; \
-	docker rmi $$(docker images -f "dangling=true" -q) ; \
-	docker volume rm srcs_database srcs_wordpress_web
+	docker rmi -f $$(docker images -f "dangling=true" -q) ; \
+	docker volume rm -f $$(docker volume ls -q)
 
 re: fclean all
