@@ -13,7 +13,7 @@ endif
 $(NAME): all
 
 all:
-	cd srcs ; $(DK_CMP) up --build -d
+	cd srcs ; $(DK_CMP) up --build
 
 clean:
 	cd srcs ; $(DK_CMP) stop
