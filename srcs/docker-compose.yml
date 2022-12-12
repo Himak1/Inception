@@ -16,14 +16,14 @@ services:
     ports:
       - "443"
     volumes:
-      - wordpress_web:/webfiles
+      - wordpress_web:/www/wordpress
   wordpress:
     depends_on:
       - mariadb
     build: ./requirements/wordpress
     restart: "no"
     volumes:
-      - wordpress_web:/files
+      - wordpress_web:/var/www
 volumes:
   wordpress_web:
     driver: local

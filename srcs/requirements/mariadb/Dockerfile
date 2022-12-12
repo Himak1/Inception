@@ -8,4 +8,4 @@ RUN rm -rf /var/lib/mysql ; \
     chmod 777 /var/run/mysqld
 COPY tools/docker-entrypoint.sh /usr/local/bin/
 COPY tools/set-users.sql /
-ENTRYPOINT docker-entrypoint.sh
+ENTRYPOINT ["docker-entrypoint.sh"]

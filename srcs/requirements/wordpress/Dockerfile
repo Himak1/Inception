@@ -23,13 +23,7 @@ RUN apk upgrade ; \
         php8-openssl \
         php8-xml \
         php8-zip ; \
-        # Downloading WordPress
-        mkdir -p /usr/share/webapps/ ; \
-        cd /usr/share/webapps/ ; \
-        wget https://wordpress.org/wordpress-6.0.3.tar.gz ; \
-        tar -xzvf wordpress-6.0.3.tar.gz ; \
-        rm wordpress-6.0.3.tar.gz ; \
-        mkdir -p /var/wwww ; \
-        mkdir -p /var/www/wordpress ; \
-        ln -s /usr/share/webapps/wordpress/ /var/www/wordpress
-CMD php-fpm8 -F -R
+        # Creating the directory path for wordpress
+        mkdir -p /var/www
+COPY tools/docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT docker-entrypoint.sh
