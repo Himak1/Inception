@@ -11,12 +11,13 @@ services:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
   nginx:
+    depends_on: wordpress
     build: ./requirements/nginx
     restart: "no"
     ports:
       - "443"
     volumes:
-      - wordpress_web:/www/wordpress
+      - wordpress_web:/var/www
   wordpress:
     depends_on:
       - mariadb
